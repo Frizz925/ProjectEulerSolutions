@@ -63,7 +63,7 @@ long f(long n) {
 		if (checkPrime(i) && n % i == 0) largest = i;
 	}
 	insert(&ftree, n, largest);
-	printf("f(%ld): %ld\n", n, largest);
+	//printf("f(%ld): %ld\n", n, largest);
 	return largest;
 }
 
@@ -87,13 +87,18 @@ long h(long n) {
 	for (k = 2; k <= n; k++) {
 		long gk = g(k);
 		if (gk > result) result = gk;
+		printf("g(%ld) = %ld\n", k, gk);
 	}
 	return result;
 }
 
 long main() {
-	long result = h((long) pow(10, 16));
-	printf("Result: %ld\n", result);
+	long i;
+	for (i = pow(10, 16); i >= 2; i--) {
+		printf("%ld\n", g(i));
+	}
+	//long result = h(100);
+	//printf("Result: %ld\n", result);
 
 	return 0;
 }
