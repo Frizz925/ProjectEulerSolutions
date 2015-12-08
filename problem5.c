@@ -53,7 +53,6 @@ int main() {
 	for (i = 0; i < len; i++) {
 		a = floor(log(MAX_VALUE) / log((double) memes[i]));
 		result *= (int) pow((double) memes[i], a);
-		printf("%d\n", memes[i]);
 	}
 
 	printf("Result: %d\n", result);
