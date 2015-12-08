@@ -3,7 +3,7 @@
 #include <math.h>
 
 #define MIN_VALUE 1
-#define MAX_VALUE 10
+#define MAX_VALUE 20
 
 int* generate_memes(int n, int *len) {
 	static int *pepes;
@@ -14,7 +14,7 @@ int* generate_memes(int n, int *len) {
 		memes[i] = 0;
 	}
 
-	p = 2; q = 0;
+	p = 2; q = 1;
 	while (flag != 1) {
 		for (i = p; i <= n; i += p) {
 			if (i == p) continue;
@@ -46,10 +46,17 @@ int* generate_memes(int n, int *len) {
 }
 
 int main() {
-	int i, len;
-	int *memes = generate_memes(20, &len);
+	double a;
+	int i, len, result = 1;
+	int *memes = generate_memes(MAX_VALUE, &len);
+
 	for (i = 0; i < len; i++) {
+		a = floor(log(MAX_VALUE) / log((double) memes[i]));
+		result *= (int) pow((double) memes[i], a);
 		printf("%d\n", memes[i]);
 	}
+
+	printf("Result: %d\n", result);
+
 	return 0;
 }
